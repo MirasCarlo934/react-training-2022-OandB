@@ -4,22 +4,35 @@ class InputSample extends Component {
 
   constructor(props) {
     super(props);
-    this.someName = "";
+    this.one = 0;
+    this.two = 0;
   }
 
   getValue = (event) => {
-    this.someName = event.target.value;
+    if (event.target.id === "one")  {
+      this.one = event.target.value;
+    } else if (event.target.id === "two") {
+      this.two = event.target.value;
+    }
   }
 
-  clickHandler = (event) => {
-    console.log(this.someName);
+  computeGcfThenLogToConsole = () => {
+    let x = this.one;
+    let y = this.two;
+    while(y) {
+      let t = y;
+      y = x % y;
+      x = t;
+    }
+    console.log(`GCF: ${x}`);
   }
 
   render() {
     return(
       <div>
-        <input type="text" onChange={this.getValue}/>
-        <button onClick={this.clickHandler}> Click</button>
+        <input type="number" id="one" onChange={this.getValue} className="form-control"/>
+        <input type="number" id="two" onChange={this.getValue} className="form-control"/>
+        <button onClick={this.computeGcfThenLogToConsole} className="btn btn-outline-dark">Get GCF</button>
       </div>
     );
   }
