@@ -7,8 +7,8 @@ class Converter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cm: 0,
-      inches: 0
+      cm: "",
+      inches: ""
     }
   }
 
