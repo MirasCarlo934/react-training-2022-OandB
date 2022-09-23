@@ -1,19 +1,14 @@
-// import logo from './logo.svg';
-import React from 'react';
-import './App.css';
-import Header from "./header";
-import Subheader from "./subheader";
-import UnsortedList from "./unsorted-list";
+import React, {Component} from 'react';
+import EventSample from "./EventSample";
 
-function App() {
-    let tasklist = ["1", "2", "3"];
-  return (
-      <React.Fragment>
-        <Header/>
-        <Subheader name="Jane"/>
-        <UnsortedList listedStrings={tasklist}/>
-      </React.Fragment>
-  );
+class App extends Component {
+  render() {
+    return (
+        <React.Fragment>
+          <EventSample/>
+        </React.Fragment>
+    );
+  }
 }
 
 export default App;
