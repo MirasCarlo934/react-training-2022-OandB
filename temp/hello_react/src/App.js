@@ -3,6 +3,7 @@ import InputSample from "./InputSample";
 import StateSample from "./StateSample";
 import StateCounter from "./StateCounter";
 import HigherLower from "./HigherLower";
+import Converter from "./Converter";
 
 class App extends Component {
   render() {
@@ -11,7 +12,8 @@ class App extends Component {
           {/*<StateSample/>*/}
           {/*<InputSample/>*/}
           {/*<StateCounter/>*/}
-          <HigherLower/>
+          {/*<HigherLower/>*/}
+          <Converter/>
         </React.Fragment>
     );
   }
