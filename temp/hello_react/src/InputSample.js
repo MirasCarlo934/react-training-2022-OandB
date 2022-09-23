@@ -6,6 +6,10 @@ class InputSample extends Component {
     super(props);
     this.one = 0;
     this.two = 0;
+    this.state = {
+      gcf: 0,
+      isItVisible: 'hidden'
+    };
   }
 
   getValue = (event) => {
@@ -25,6 +29,10 @@ class InputSample extends Component {
       x = t;
     }
     console.log(`GCF: ${x}`);
+    this.setState({
+      gcf: x,
+      isItVisible: 'visible'
+    });
   }
 
   render() {
@@ -33,6 +41,7 @@ class InputSample extends Component {
         <input type="number" id="one" onChange={this.getValue} className="form-control"/>
         <input type="number" id="two" onChange={this.getValue} className="form-control"/>
         <button onClick={this.computeGcfThenLogToConsole} className="btn btn-outline-dark">Get GCF</button>
+        <div style={{visibility: this.state.isItVisible}}>{this.state.gcf}</div>
       </div>
     );
   }
