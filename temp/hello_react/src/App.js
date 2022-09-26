@@ -5,6 +5,7 @@ import StateCounter from "./StateCounter";
 import HigherLower from "./HigherLower";
 import Converter from "./Converter";
 import HookSample from "./HookSample";
+import StateCounterHooks from "./StateCounterHooks";
 
 class App extends Component {
   render() {
@@ -15,7 +16,8 @@ class App extends Component {
           {/*<StateCounter/>*/}
           {/*<HigherLower/>*/}
           {/*<Converter/>*/}
-          <HookSample/>
+          {/*<HookSample/>*/}
+          <StateCounterHooks/>
         </React.Fragment>
     );
   }
