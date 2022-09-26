@@ -19,7 +19,8 @@ class App extends Component {
           {/*<Converter/>*/}
           {/*<HookSample/>*/}
           {/*<StateCounterHooks/>*/}
-          <ConverterHooks/>
+          {/*<ConverterHooks/>*/}
+          <HigherLower/>
         </React.Fragment>
     );
   }
