@@ -19,18 +19,32 @@ function TodoBasic() {
       <h1>My GTD</h1>
       <input type="text" ref={txt} placeholder="type something here" onKeyUp={handleKeyUp}/>
       <button onClick={addTodo}>Add</button>
-      <TodoList items={todoList}/>
+      <TodoList items={todoList} todoList={todoList} setTodoList={setTodoList}/>
     </React.Fragment>
   );
 }
 
-function TodoList({items}) {
+function TodoList({items, todoList, setTodoList}) {
   return (
-    <ul>
+    <React.Fragment>
       {
-        items.map(item => <li>{item}</li>)
+        items.map(item => <Todo item={item} todoList={todoList} setTodoList={setTodoList}/>)
       }
-    </ul>
+    </React.Fragment>
+  )
+}
+
+function Todo({item, todoList, setTodoList}) {
+  return (
+    <div className="card Todo-item">
+      <div className="card-body">
+        <h5>
+          {item}
+        </h5>
+        <a onClick={() => setTodoList(todoList.filter(todo => todo !== item))} href="#" className="btn btn-outline-dark">remove</a>
+        <a href="#" className="btn btn-outline-primary">mark as completed</a>
+      </div>
+    </div>
   )
 }
 
