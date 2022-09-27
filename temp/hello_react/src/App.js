@@ -9,6 +9,7 @@ import StateCounterHooks from "./StateCounterHooks";
 import ConverterHooks from "./ConverterHooks";
 import HigherLowerHooks from "./HigherLowerHooks";
 import ListSample from "./ListSample";
+import TodoBasic from "./TodoBasic";
 
 class App extends Component {
   render() {
@@ -23,8 +24,9 @@ class App extends Component {
           {/*<StateCounterHooks/>*/}
           {/*<ConverterHooks/>*/}
           {/*<HigherLower/>*/}
-          <HigherLowerHooks/>
-          <ListSample/>
+          {/*<HigherLowerHooks/>*/}
+          {/*<ListSample/>*/}
+          <TodoBasic/>
         </React.Fragment>
     );
   }
