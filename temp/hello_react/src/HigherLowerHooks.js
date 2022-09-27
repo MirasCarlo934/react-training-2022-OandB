@@ -1,19 +1,17 @@
 import React, {useRef, useState} from "react";
 
 function HigherLowerHooks() {
-  const numToGuess = Math.floor((Math.random() * 100)) + 1;
-  const hint = useRef('');
-  const guess = useRef(0);
+  const [numToGuess, setNumToGuess] = useState(Math.floor((Math.random() * 100)) + 1);
+  const [hint, setHint] = useState('');
+  const guess = useRef();
 
   function evaluateGuess() {
-    hint.current.value = () => {
-      if (guess < numToGuess) {
-        return 'Higher'
-      } else if (guess > numToGuess) {
-        return 'Lower'
-      } else {
-        return 'Correct'
-      }
+    if (guess.current.value < numToGuess) {
+      setHint('Higher');
+    } else if (guess.current.value > numToGuess) {
+      setHint('Lower');
+    } else {
+      setHint('Correct');
     }
   }
 
@@ -25,7 +23,7 @@ function HigherLowerHooks() {
              placeholder="guess the number from 0 to 100"
              className="form-control"/>
       <button className="btn btn-outline-dark" onClick={evaluateGuess}>Guess</button>
-      <div ref={hint}/>
+      <div>{hint}</div>
     </div>
   );
 }

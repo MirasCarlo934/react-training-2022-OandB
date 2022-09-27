@@ -7,6 +7,8 @@ import Converter from "./Converter";
 import HookSample from "./HookSample";
 import StateCounterHooks from "./StateCounterHooks";
 import ConverterHooks from "./ConverterHooks";
+import HigherLowerHooks from "./HigherLowerHooks";
+import ListSample from "./ListSample";
 
 class App extends Component {
   render() {
@@ -20,7 +22,9 @@ class App extends Component {
           {/*<HookSample/>*/}
           {/*<StateCounterHooks/>*/}
           {/*<ConverterHooks/>*/}
-          <HigherLower/>
+          {/*<HigherLower/>*/}
+          <HigherLowerHooks/>
+          <ListSample/>
         </React.Fragment>
     );
   }
