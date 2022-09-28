@@ -11,6 +11,9 @@ import HigherLowerHooks from "./HigherLowerHooks";
 import ListSample from "./ListSample";
 import TodoBasic from "./TodoBasic";
 import FormSample from "./FormSample";
+import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
+import FormSampleSolution from "./FormSampleSolution";
+import FetchSample from "./FetchSample";
 
 export default class App extends Component {
   render() {
@@ -28,7 +31,20 @@ export default class App extends Component {
           {/*<HigherLowerHooks/>*/}
           {/*<ListSample/>*/}
           {/*<TodoBasic/>*/}
-          <FormSample/>
+          {/*<FormSample/>*/}
+          <BrowserRouter>
+            <h1>Exercise for 28.Sep.22</h1>
+            <nav className='navbar'>
+              <NavLink to='/fetchSample'>Fetch Sample</NavLink>
+              <NavLink to='/formSampleSolution'>Form Sample Solution</NavLink>
+              <NavLink to='/todoBasic'>Todo Basic</NavLink>
+            </nav>
+            <Routes>
+              <Route path="/fetchSample" element={<FetchSample/>}/>
+              <Route path="/formSampleSolution" element={<FormSampleSolution/>}/>
+              <Route path="/todoBasic" element={<TodoBasic/>}/>
+            </Routes>
+          </BrowserRouter>
         </React.Fragment>
     );
   }
