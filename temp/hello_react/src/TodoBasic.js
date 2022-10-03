@@ -1,11 +1,27 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 
 function TodoBasic() {
+  const itemCount = useRef(0);
   const txt = useRef();
+  const txtFilter = useRef();
   const [todoList, setTodoList] = useState([]);
+  const [todoListFiltered, setTodoListFiltered] = useState([]);
 
   function addTodo() {
-    setTodoList([...todoList, txt.current.value]);
+    const newTodo = {
+      id: itemCount.current,
+      text: txt.current.value
+    }
+    let tempList = [...todoList, newTodo];
+    setTodoList(tempList);
+    setTodoListFiltered(tempList);
+    itemCount.current = itemCount.current + 1;
+  }
+
+  function removeTodo(todo) {
+    let tempList = todoList.filter(tempTodo => tempTodo.id !== todo.id);
+    setTodoList(tempList);
+    setTodoListFiltered(tempList);
   }
 
   function handleKeyUp(event) {
@@ -14,35 +30,42 @@ function TodoBasic() {
     }
   }
 
+  function filterList() {
+    let filterExpr = txtFilter.current.value;
+    let tempArr = todoList.filter(todo => todo.text.includes(filterExpr));
+    setTodoListFiltered(tempArr);
+  }
+
   return (
     <React.Fragment>
       <h1>My GTD</h1>
       <input type="text" ref={txt} placeholder="type something here" onKeyUp={handleKeyUp}/>
       <button onClick={addTodo}>Add</button>
-      <TodoList items={todoList} todoList={todoList} setTodoList={setTodoList}/>
+      <br/>
+      <input type="text" ref={txtFilter} placeholder="filter" onChange={filterList} onKeyUp={filterList}/>
+      <TodoList items={todoListFiltered} onRemoveItem={removeTodo}/>
     </React.Fragment>
   );
 }
 
-function TodoList({items, todoList, setTodoList}) {
+function TodoList({items, onRemoveItem}) {
   return (
     <React.Fragment>
       {
-        items.map(item => <Todo item={item} todoList={todoList} setTodoList={setTodoList}/>)
+        items.map(item => <Todo item={item} onRemove={onRemoveItem}/>)
       }
     </React.Fragment>
   )
 }
 
-function Todo({item, todoList, setTodoList}) {
+function Todo({item, onRemove}) {
   return (
     <div className="card Todo-item">
       <div className="card-body">
         <h5>
-          {item}
+          {item.text}
         </h5>
-        <a onClick={() => setTodoList(todoList.filter(todo => todo !== item))} href="#" className="btn btn-outline-dark">remove</a>
-        <a href="#" className="btn btn-outline-primary">mark as completed</a>
+        <a onClick={() => onRemove(item)} href="#" className="btn btn-outline-dark">remove</a>
       </div>
     </div>
   )

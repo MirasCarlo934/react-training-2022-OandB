@@ -14,6 +14,7 @@ import FormSample from "./FormSample";
 import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
 import FormSampleSolution from "./FormSampleSolution";
 import FetchSample from "./FetchSample";
+import Reducer from "./Reducer";
 
 export default class App extends Component {
   render() {
@@ -30,21 +31,24 @@ export default class App extends Component {
           {/*<HigherLower/>*/}
           {/*<HigherLowerHooks/>*/}
           {/*<ListSample/>*/}
-          {/*<TodoBasic/>*/}
+          <TodoBasic/>
           {/*<FormSample/>*/}
-          <BrowserRouter>
-            <h1>Exercise for 28.Sep.22</h1>
-            <nav className='navbar'>
-              <NavLink to='/fetchSample'>Fetch Sample</NavLink>
-              <NavLink to='/formSampleSolution'>Form Sample Solution</NavLink>
-              <NavLink to='/todoBasic'>Todo Basic</NavLink>
-            </nav>
-            <Routes>
-              <Route path="/fetchSample" element={<FetchSample/>}/>
-              <Route path="/formSampleSolution" element={<FormSampleSolution/>}/>
-              <Route path="/todoBasic" element={<TodoBasic/>}/>
-            </Routes>
-          </BrowserRouter>
+
+          {/*<BrowserRouter>*/}
+          {/*  <h1>Exercise for 28.Sep.22</h1>*/}
+          {/*  <nav className='navbar'>*/}
+          {/*    <NavLink to='/fetchSample'>Fetch Sample</NavLink>*/}
+          {/*    <NavLink to='/formSampleSolution'>Form Sample Solution</NavLink>*/}
+          {/*    <NavLink to='/todoBasic'>Todo Basic</NavLink>*/}
+          {/*  </nav>*/}
+          {/*  <Routes>*/}
+          {/*    <Route path="/fetchSample" element={<FetchSample/>}/>*/}
+          {/*    <Route path="/formSampleSolution" element={<FormSampleSolution/>}/>*/}
+          {/*    <Route path="/todoBasic" element={<TodoBasic/>}/>*/}
+          {/*  </Routes>*/}
+          {/*</BrowserRouter>*/}
+
+          {/*<Reducer/>*/}
         </React.Fragment>
     );
   }
